@@ -1,0 +1,355 @@
+* {
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Estrela */
+body{
+  text-align: center;
+}
+
+.estrelas {
+  text-align: center;
+}
+.estrelas input[type=radio] {
+  display: none;
+}
+.estrelas label i.fa{
+  font-size: 1.5em
+}
+.estrelas label i.fa:before {
+  content:'\f005';
+  color: #FC0;
+}
+
+.estrelas label {
+  text-align: center;
+}
+.estrelas input[type=radio]:checked ~ label i.fa:before {
+  color: #CCC;
+}
+
+/* Estrela Fim */
+
+.wrapper {
+  background: url(img/web.jpg) no-repeat;
+  background-size: cover;
+  height: 100vh;
+}
+
+.navbar {
+  width: 100%;
+  height: 80px;
+  background: rgba(128, 128, 128, 0.349);
+}
+
+.navbar ul {
+  float: right;
+  margin-right: 20px;
+}
+
+.navbar ul li {
+  list-style: none;
+  margin: 0 8px;
+  display: inline-block;
+  line-height: 80px;
+}
+
+.navbar ul li a {
+  text-decoration: none;
+  color: white;
+  font-size: 20px;
+  font-family: "Roboto", "Sans-serif";
+  padding: 6px 12px;
+  transition: 0.4s;
+}
+
+.navbar ul li a.active,
+.navbar ul li a:hover {
+  background: rgb(164, 209, 207);
+  border-radius: 2px;
+}
+
+.logo {
+  width: 100px;
+  height: auto;
+  padding: 0px 100px;
+}
+
+.wrapper .center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: "Roboto", "sans-serif";
+  user-select: none;
+}
+
+.center h1 {
+  color: rgb(255, 255, 255);
+  font-size: 70px;
+  font-weight: bold;
+  width: 900px;
+  text-align: center;
+}
+
+.center h2 {
+  color: rgb(255, 255, 255);
+  font-size: 50px;
+  font-weight: bold;
+  width: 850px;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.center .buttons {
+  margin: 35px 280px;
+}
+
+.buttons button {
+  height: 50px;
+  width: 150px;
+  font-size: 18px;
+  font-weight: bold;
+  color: black;
+  background-color: rgb(164, 209, 207);
+  border: 1px solid rgb(27, 5, 150);
+  border-radius: 25px;
+  outline: none;
+  cursor: pointer;
+}
+
+.buttons .btn {
+  margin-left: 25px;
+}
+
+.buttons button:hover {
+  background-color: rgb(73, 129, 233);
+}
+
+/* Introdução*/
+
+body {
+  color: #242424;
+  font-family: sans-serif;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-align: center;
+  font-weight: 900;
+  color: #000;
+}
+
+p {
+  font-size: 18px;
+}
+
+.wrappe1 {
+  width: 100%;
+  margin: 0 auto;
+}
+
+main {
+  display: block;
+  background-color: #fff;
+}
+
+.container {
+  width: 100%;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+section.module p {
+  margin-bottom: 40px;
+}
+
+section.module:last-child {
+  margin-bottom: 0;
+}
+
+section.module h2 {
+  margin-bottom: 40px;
+  font-size: 30px;
+}
+
+section.module.content {
+  padding: 40px 0;
+  background: #ece7d5;
+}
+
+section.module.parallax {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100vh !important;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+}
+
+section.module.parallax:after {
+  content: "";
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  z-index: 8;
+  background: -moz-linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 0,
+    rgba(0, 0, 0, 0) 40%,
+    #000 100%
+  );
+  background: -webkit-linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 0,
+    rgba(0, 0, 0, 0) 40%,
+    #000 100%
+  );
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 0,
+    rgba(0, 0, 0, 0) 40%,
+    #000 100%
+  );
+}
+
+section.module.parallax-1 {
+  background-image: url("https://images.unsplash.com/photo-1632882765546-1ee75f53becb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1032&q=80");
+}
+
+section.module.parallax-2 {
+  background-image: url("https://document-export.canva.com/VuQQc/DAE6oGVuQQc/18/thumbnail/0001.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQYCGKMUHWDTJW6UD%2F20220310%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20220310T195537Z&X-Amz-Expires=23347&X-Amz-Signature=1248538e4458bed5c159583ebf81e0c6db8ef7b39553f30725d46978ebca70b0&X-Amz-SignedHeaders=host&response-expires=Fri%2C%2011%20Mar%202022%2002%3A24%3A44%20GMT");
+}
+
+section.module.parallax h1 {
+  color: #fff;
+  text-align: center;
+  font-size: 78px;
+  z-index: 50;
+  text-transform: uppercase;
+}
+
+@media all and (max-width: 820px) {
+  section.module h2 {
+    font-size: 32px;
+  }
+  .module h2,
+  p {
+    padding: 0 8px;
+  }
+
+  .container {
+    margin: 0;
+    padding: 0;
+  }
+
+  section.module.parallax h1 {
+    font-size: 36px;
+  }
+}
+
+/* Footer*/
+
+footer {
+  text-align: center;
+  padding: 3px;
+  background-color: rgb(0, 0, 0);
+  color: white;
+}
+
+
+
+form {
+  /* Centralizar o formulário na pagina */
+  margin: 0 auto;
+  width: 400px;
+  /* Ver o esboço do formulário */
+  padding: 1em;
+  border: 1px solid #CCC;
+  border-radius: 20px;
+}
+
+form div + div {
+  margin-top: 1em;
+}
+
+label {
+  /* Para garantir que todos os rótulos tenham o mesmo tamanho e estejam devidamente alinhados*/
+  display: inline-block;
+  width: 90px;
+  text-align: right;
+}
+
+input, textarea {
+  /* 
+Para garantir que todos os campos de texto tenham as mesmas configurações de fonte
+     Por padrão, as áreas de texto possuem a mesma fonte */
+  font: 1em sans-serif;
+
+  /* Para dar o mesmo tamanho a todos os campos de texto*/
+  width: 264px;
+  box-sizing: border-box;
+
+  /* Para harmonizar o aspecto e a sensação da borda do campo de texto */
+  border: 1px solid #999;
+  border-radius: 6px;
+
+/*input:focus, textarea:focus {
+  /* Para dar um pouco de destaque aos elementos ativos*/
+  border-color: #000;
+}
+
+textarea {
+  /* Para alinhar corretamente campos de texto multilinha com seus rótulos */
+  vertical-align: top;
+
+  /* Para dar espaço suficiente para digitar algum texto */
+  height: 5em;
+}
+
+.button {
+  /* Para posicionar os botões na mesma posição dos campos de texto */
+  /*padding-left: 90px; /* mesmo tamanho que os elementos do rótulo */
+  border-radius: 6px;
+}
+
+button {
+  /* Esta margem extra representa aproximadamente o mesmo espaço que o espaço
+     entre os rótulos e seus campos de texto*/
+  margin-left: .5em;
+}
+
+.botaoEnviar{
+  font-size: 16px;
+}
+
+.form-comentario{
+  text-align: left;
+  
+}
+
+.comentario-footer{
+  padding: 0;
+  
+}
