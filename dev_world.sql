@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3308
--- Tempo de geração: 24-Abr-2022 às 23:50
+-- Tempo de geração: 30-Maio-2022 às 02:24
 -- Versão do servidor: 5.7.36
 -- versão do PHP: 7.4.26
 
@@ -53,7 +53,7 @@ CREATE TABLE IF NOT EXISTS `content` (
   `email_user` varchar(45) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `email_user` (`email_user`)
-) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `content`
@@ -70,7 +70,7 @@ DELIMITER $$
 CREATE TRIGGER `AddCoin` AFTER INSERT ON `content` FOR EACH ROW UPDATE user 
 LEFT JOIN Content ON Content.email_user = User.email
 SET coins = coins + 1
-WHERE User.email = Content.email_user
+WHERE User.email = New.email_user
 $$
 DELIMITER ;
 
@@ -95,7 +95,30 @@ CREATE TABLE IF NOT EXISTS `user` (
 --
 
 INSERT INTO `user` (`email`, `name`, `last_name`, `password`, `coins`) VALUES
-('edu@edu.com', 'Eduardo', 'Silva', '@acbdefg', 1);
+('edu@edu.com', 'Eduardo', 'Silva', '@acbdefg', 7),
+('jonas@lopes.com', 'Jonas', 'Lopes', 'asbb1231', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura stand-in para vista `vw_rank_user`
+-- (Veja abaixo para a view atual)
+--
+DROP VIEW IF EXISTS `vw_rank_user`;
+CREATE TABLE IF NOT EXISTS `vw_rank_user` (
+`email` varchar(45)
+,`coins` int(11)
+);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para vista `vw_rank_user`
+--
+DROP TABLE IF EXISTS `vw_rank_user`;
+
+DROP VIEW IF EXISTS `vw_rank_user`;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vw_rank_user`  AS SELECT `user`.`email` AS `email`, `user`.`coins` AS `coins` FROM (`user` left join `content` on((`content`.`email_user` = `user`.`email`))) WHERE (`user`.`coins` >= 0) GROUP BY `user`.`email` ORDER BY `user`.`coins` DESC LIMIT 0, 5 ;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
