@@ -353,3 +353,15 @@ button {
   padding: 0;
   
 }
+
+.rank{
+  border-radius: 6px;
+  width: 400px;
+  margin: 10px auto;
+  color: #CCC;
+  padding: 5x;
+  position: absolute;
+  top: 94px;
+  left: 20px;
+}
+

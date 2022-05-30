@@ -1,0 +1,45 @@
+<?php
+if(!defined('DB_HOST'))
+{
+    define('DB_HOST','localhost');
+}
+if(!defined('DB_PORT'))
+{
+    define('DB_PORT','3308');
+}
+if(!defined('DB_NAME'))
+{
+    define('DB_NAME','dev world');
+}
+if(!defined('DB_USER'))
+{
+    define('DB_USER','root');
+}
+if(!defined('DB_PASSWORD'))
+{
+    define('DB_PASSWORD','');
+}
+if(!defined('DB_CHAR'))
+{
+    define('DB_CHAR','utf8');
+}
+if(!defined('ABSPATH'))
+{
+    define('ABSPATH',dirname(__FILE__).'/');
+}
+if(!defined('BASEURL'))
+{
+    define('BASEURL','ProjetoWeb/');
+}
+if(!defined('DBAPI'))
+{
+    define('DBAPI',ABSPATH.'/database.php');
+}
+if(!defined('HEADER_TEMPLATE'))
+{
+    define('HEADER_TEMPLATE', ABSPATH . '/header.php');
+}
+if(!defined('FOOTER_TEMPLATE'))
+{
+    define('FOOTER_TEMPLATE', ABSPATH . '/footer.php');
+}

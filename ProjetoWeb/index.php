@@ -1,3 +1,30 @@
+<?php 
+    if(!isset($_SESSION))
+    {
+        session_start();
+    }
+    if(!isset($_SESSION['email']) and (!isset($_SESSION['password'])))
+    {
+        header("Location: login.php");
+    }
+                 
+    require_once 'config.php';
+    require_once 'crud.php';
+
+    $crud = new Crud(DB_HOST,DB_PORT,DB_NAME,DB_USER,DB_PASSWORD,DB_CHAR);
+    $array = [];
+    $select = $crud->select('vw_rank_user', $array);
+    $select->fetch_assoc();
+    
+    $arrayContent = [];
+    $selectContent = $crud->select('Content', $arrayContent);
+    $selectContent->fetch_assoc();
+    //$selectContent->fetch_assoc();
+    //var_dump($selectContent);
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -8,7 +35,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" href="img/du.ico.png" type="image/x-icon">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-    
+    <link rel="stylesheet" href="/css/bootstrap.min">
     <script src="main.js"></script> 
     <title>Aprenda HTML e CSS Basico</title>
 </head>
@@ -23,7 +50,7 @@
                 <li><a href="#intro">Introdução</a> </li>
                 <li><a href="#html">HTML</a> </li>
                 <li><a href="#css">CSS</a> </li>
-                <li><a href="login.php">Sair</a> </li>
+                <li><a href="login.php?a=1">Sair</a> </li>
             </ul>
         </nav>
 
@@ -42,6 +69,43 @@
 
     <div class="wrapper">
         <main>
+            <section class="rank">
+                <div class="table-responsive-sm">
+                <table class="table">
+                    
+                        <thead>
+                        <tr>
+                        <td colspan=2>Rank de Usuários</td>
+                    </tr>
+                            <tr>
+                                <td>Email</td>
+                                <td>Quantidade Coins</td>
+                            </tr>
+                        </thead>
+                <?php 
+                        foreach($select as $atributo)
+                        {
+                        
+                ?>
+                    
+                        <tbody>
+                            <td><?php
+                                    echo $atributo['email'];
+                                ?>
+                            </td>
+                            <td><?php
+                                    echo $atributo['coins'];
+                                ?>
+                            </td>
+                        </tbody>
+                        
+                    <?php
+                        }
+                    ?>
+                   </table>  
+                </div>
+            </section>
+
             <section class="module parallax parallax-1" id="intro">
                 <h1 id="html">Introdução ao HTML</h1>
             </section>
@@ -49,24 +113,14 @@
             <section class="module content">
                 <div class="container">
                     <h2>HTML</h2>
-                    <p>
-                    Um desenvolvedor front-end precisava dominar só o HTML, o CSS e JavaScript para ter uma boa 
-                    colocação no mercado. Claramente, outras coisas eram incluídas nesse "só", como por exemplo: 
-                    responsividade, semântica do HTML, acessibilidade, performance entre outras. Mas tudo girava 
-                    em torno das três tecnologias principais.
-                    </p>    
-                    <p>
-                    A web mudou. Entraram outras habilidades como versionamento de arquivos, automatização de 
-                    tarefas, pré-processadores, bibliotecas, frameworks, NodeJS e gerenciador de pacotes, para 
-                    citar alguns. Mas a base de tudo ainda gira em torno das três tecnologias principais.
-                    </p>
-                    <p>
-                    sso quer dizer que não importa a época ou a tecnologia, a base sempre vai ser a mesma. Então 
-                    antes de pular para o tão famoso framework, temos que aprender a base dele para realmente 
-                    entender o que está por trás dos panos. Sei que encontrar material de qualidade e com uma 
-                    linguagem simples para quem está começando não é uma tarefa muito fácil. Com essa premissa em 
-                    mente, criei esse e-book onde irei ensinar alguns fundamentos básicos do front-end
-                    </p>
+                    <?php
+                        foreach($selectContent as $atributo)
+                        {
+                            echo $atributo['description'];
+                        }
+                        
+                    
+                    ?>
                 </div>
                 <div class="estrelas">
                     <input type="radio" id="html_star-empty" name="fb" value="" checked/>

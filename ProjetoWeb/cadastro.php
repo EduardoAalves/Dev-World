@@ -1,26 +1,29 @@
 <?php 
-    if(!isset($_SESSION)){
+    if(!isset($_SESSION))
+    {
         session_start();
     }
 
     if(isset($_POST) and !empty($_POST)){
-        $conn = new mysqli('localhost', 'root', '', 'dev world', '3308');
+        $conn = new mysqli('localhost', 'root', '', 'Dev World', '3308');
         $conn->set_charset("utf8");
-        $nome = $_POST['nome'];
-        $sobrenome = $_POST['sobrenome'];
+        $name = $_POST['name'];
+        $last_name = $_POST['last_name'];
         $email = $_POST['email'];
         $password = $_POST['password'];
+        $coins = 0;
+
 
         $sql_1 = "SELECT * FROM user WHERE email='$email'";
         $exe_1 = $conn->query($sql_1);
         if($exe_1->num_rows > 0){
             echo "Já existe";
         }else{
-            $sql_2 = "INSERT INTO user(name, last_name, email, password)
-                    VALUES('$nome','$sobrenome','$email','$password')";
+            $sql_2 = "INSERT INTO user(name, last_name, email, password, coins)
+                                    VALUES('$name','$last_name','$email','$password', '$coins')";
             $exe_2 = $conn->query($sql_2);
             $_SESSION['msg'] = "Registo cadastrado com sucesso!";
-            header('Location: login.php');
+            //header('Location: login.php');
         }
     }
 ?>
@@ -48,7 +51,7 @@
             <label for="">Nome:</label>
             <input type="text" name="name" id="name" placeholder="Digite seu nome" autocomplete="off">
             <label for="">Sobrenome</label>
-            <input type="text" name="sobrenome" id="sobrenome" placeholder="Digite seu sobrenome" autocomplete="off">
+            <input type="text" name="last_name" id="last_name" placeholder="Digite seu sobrenome" autocomplete="off">
             <label for="">E-mail</label>
             <input type="email" name="email" id="email" placeholder="Digite seu email" autocomplete="off">
             <label for="">Senha</label>

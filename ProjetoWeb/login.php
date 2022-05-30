@@ -3,11 +3,15 @@
     if(!isset($_SESSION)){
         session_start();
     }
-    if(!isset($_POST) and !empty($_POST)){
+    if(isset($_GET['a']) and ($_GET['a'] == 1))
+    {
+        session_destroy();
+    }
+    if(isset($_POST) and !empty($_POST)){
         $email = $_POST['email'];
-        $password = MD5($_POST['password']);
+        $password = ($_POST['password']);
 
-        $conn = new mysqli('localhost', 'root', '', 'dev world');
+        $conn = new mysqli('localhost', 'root', '', 'dev world','3308');
         $conn->set_charset("utf8");
 
         $sql = "SELECT * FROM user WHERE email='$email' and password='$password' ";
@@ -16,7 +20,7 @@
             $_SESSION['email'] = 'ok';
             header('Location: index.php');
         }else{
-            echo "ERROR";
+            echo "Email ou senha inválida!";
         }
     }
 ?>
