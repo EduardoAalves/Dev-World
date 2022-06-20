@@ -17,7 +17,7 @@
         $sql = "SELECT * FROM user WHERE email='$email' and password='$password' ";
         $exe = $conn->query($sql);
         if($exe->num_rows > 0){
-            $_SESSION['email'] = 'ok';
+            $_SESSION['email'] = $email;
             header('Location: index.php');
         }else{
             echo "Email ou senha inválida!";

@@ -39,6 +39,7 @@ class Crud extends Conexao
     }
 
 
+
     public function update($tabela, array $dados, $id)
     {
         $this->conexao = $this->Conectar();
